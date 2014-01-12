@@ -1,0 +1,32 @@
+{
+  "express": {
+    "port" : 3000
+  },
+
+  "env" : "development",
+
+  "security": {
+      "tokenLife":3600
+  },
+
+  "mongoose": {
+    "uri": "mongodb://localhost/EventsMap",
+    "options": {
+      "server": {
+        "socketOptions": {
+          "keepAlive": 1
+        }
+      }
+    }
+  },
+
+  "session": {
+        "secret": "KillerIsJim",
+        "key": "sid",
+        "cookie": {
+            "path": "/",
+            "httpOnly": true,
+            "maxAge": null
+        }
+  }
+}

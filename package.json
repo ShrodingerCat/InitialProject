@@ -7,8 +7,9 @@
   },
   "dependencies": {
     "express": "~3.4.7",
-    "ejs": "~0.8.5",
     "nconf": "~0.6.9",
-    "bootable": "~0.2.2"
+    "bootable": "~0.2.2",
+    "bootable-environment": "~0.2.0",
+    "ect": "~0.5.6"
   }
 }

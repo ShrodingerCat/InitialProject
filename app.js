@@ -1,36 +1,27 @@
-
 /**
  * Module dependencies.
  */
 
 var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
-var http = require('http');
-var path = require('path');
+var config = require('nconf');
+var bootable = require('bootable');
+var bootableEnv = require('bootable-environment');
 
-var app = express();
+var app = bootable(express());
 
-// all environments
-app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, 'app/views'));
-app.set('view engine', 'ejs');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+// Setup initializers
+app.phase(bootable.initializers('config/initializers/'));
 
-// development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
+//Setup environments
+app.phase(bootableEnv('config/environments/'));
 
-app.get('/', routes.index);
-app.get('/users', user.list);
+// Setup routes
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+app.phase(bootable.routes('routes/index.js'));
+
+app.boot(function(err) {
+    if (err) { throw err; }
+    app.listen(config.get('express:port'), function() {
+        console.log('Express server listening on port ' + config.get('express:port'));
+    });
 });
