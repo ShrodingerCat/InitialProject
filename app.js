@@ -17,7 +17,7 @@ app.phase(bootableEnv('config/environments/'));
 
 // Setup routes
 
-app.phase(bootable.routes('routes/index.js'));
+app.phase(bootable.routes('config/router.js'));
 
 app.boot(function(err) {
     if (err) { throw err; }

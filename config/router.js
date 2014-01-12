@@ -1,15 +1,14 @@
+'use strict';
 
-/*
- * GET home page.
+/**
+ * Module dependencies.
  */
-/*
-exports.index = function(req, res){
-  res.render('index.ect', { title: 'Express' });
-};
-*/
+// End of dependencies.
 
 module.exports = function() {    
+
     this.get('/', function (req, res, next){
     	res.render('index', { title: 'Express' });
     });
+    
 };
