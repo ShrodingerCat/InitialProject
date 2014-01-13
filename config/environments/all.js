@@ -4,13 +4,12 @@
  * Module dependencies.
  */
 var config = require('nconf');
-var path = require('path');
 var express = require('express');
 // end of dependencies.
 
 
 module.exports = function() {
-    
+
     this.use(express.favicon());
 
     if ('development' == this.get('env')) {
@@ -36,5 +35,7 @@ module.exports = function() {
 
     this.use(this.router);
     // clearly denote public content
-    this.use(express.errorHandler());
+    this.use(require('../middlewares/notFoundHandler'));
+    this.use(require('../middlewares/errorHandler'));
+    //this.use(express.errorHandler());
 };

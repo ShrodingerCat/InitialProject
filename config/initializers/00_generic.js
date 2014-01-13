@@ -8,19 +8,6 @@
 // finished.  Initializers are invoked sequentially, ensuring that the
 // previous one has completed before the next one executes.
 
-'use strict';
-
-/**
- * Module dependencies.
- */
-var config    = require('nconf');
-// end of dependencies.
-
-
 module.exports = function() {
 
-    // Setup nconf
-    config.argv()
-        .env()
-        .file({'file': 'config.json'});
 };
