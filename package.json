@@ -10,6 +10,7 @@
     "nconf": "~0.6.9",
     "bootable": "~0.2.2",
     "bootable-environment": "~0.2.0",
-    "ect": "~0.5.6"
+    "ect": "~0.5.6",
+    "mongoose": "~3.8.4"
   }
 }
