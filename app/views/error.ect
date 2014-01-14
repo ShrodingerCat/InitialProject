@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @status + ' ' %><%= @error.name %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= @status + ' ' %><%= @error.name %></h1>
+    <h2><%= @error.message %></h2>
+    <% if @settings['verbose errors'] : %>
+    <p><%= @error.stack %></p>
+    <% end %>
+    <p>Sorry, an error occurred</p>
+  </body>
+</html>
